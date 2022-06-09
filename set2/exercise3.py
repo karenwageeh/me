@@ -13,7 +13,10 @@ def is_odd(a_number):
 
     So if a_number modulo two is zero, then it's even.
     """
-    return None
+    if a_number % 2 == 1:
+        return True
+    else:
+        return False
 
 
 def fix_it(moves=True, should_move=True):
@@ -31,7 +34,18 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements.
     As an extra challenge, see if you can get that down to three.
     """
-    return None
+    if moves == True: 
+        if should_move == True:
+            return "No Problem"
+        else:
+            return "Duct Tape"
+    else:
+        if should_move == True:
+            return "WD-40"
+        else:
+            return "No Problem"
+
+
 
 
 def loops_preview():
@@ -54,7 +68,10 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+    stars_list = []
+    for i in range(10):
+        stars_list.append("*")
+    return stars_list
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -67,7 +84,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     Remember that you're being passed arguments here. Don't hard code the number
     or the symbol, let it be whatever it wants to be.
     """
-    return None
+    hashtag_list = []
+    for i in range(number_of_items):
+        hashtag_list.append(symbol)
+    return hashtag_list
 
 
 def loops_2():
@@ -88,7 +108,13 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+    Twinki_list = []
+    for i in range(10):
+        flying_list = []
+        for j in range(10):
+            flying_list.append("*")
+        Twinki_list.append(flying_list)
+    return Twinki_list
 
 
 def loops_3():
@@ -112,7 +138,13 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+    Numbers_list = []
+    for i in range(10):
+        tens_list = []
+        for j in range(10):
+            tens_list.append(str(i))
+        Numbers_list.append(tens_list)
+    return Numbers_list
 
 
 def loops_4():
@@ -132,7 +164,14 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    right_list = []
+    for i in range(10):
+        left_list = []
+        for j in range(10):
+            left_list.append(str(j))
+        right_list.append(left_list)
+    return right_list
+   
 
 
 def loops_5():
@@ -162,7 +201,15 @@ def loops_5():
         f"There are {num_bottles} green bottles"
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    
+    right_list = []
+    for i in range(10):
+        left_list = []
+        for j in range(5):
+            left_list.append(f"(i{i}, j{j})")#(i0, j0)
+        right_list.append(left_list)
+    return right_list
+   
 
 
 def loops_6():
@@ -185,7 +232,14 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    row_list = []
+    for i in range(10):
+        edge_list = []
+        for j in range(i + 1):
+            edge_list.append(str(j))
+        row_list.append(edge_list)
+    return row_list
+    
 
 
 def loops_7():
@@ -209,7 +263,20 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    if some_kind_of_list is not None:
+        print("\n" + exercise_name)
+        if type(some_kind_of_list[0]) is list:
+            for row in some_kind_of_list:
+                for column in row:
+                    print(column, end="")
+                print()
+        else:
+            for column in some_kind_of_list:
+                print(column, end="")
+            print()
+    else:
+        print(exercise_name, ")
+    
 
 
 def little_printer(some_kind_of_list, exercise_name):
