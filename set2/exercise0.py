@@ -17,7 +17,7 @@ obvious answer, that's because it is!
 """
 
 
-def add_1(a_number):
+def add_5(a_number):
     """Return a number that is 1 bigger than number given.
 
     This isn't a trick!
@@ -25,7 +25,7 @@ def add_1(a_number):
     This is an example function to get you started.
     Run the tests now and this one should go green. Free marks!
     """
-    the_answer = a_number + 1
+    the_answer = a_number + 5
     return the_answer
 
 
@@ -51,7 +51,7 @@ def adder(a_number, another_number):
 
     Same as above, but with any two numbers.
     """
-    the_answer = None
+    the_answer = a_number + 5
     return the_answer
 
 
