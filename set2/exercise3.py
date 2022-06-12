@@ -2,6 +2,9 @@
 """Modify each function until the tests pass."""
 
 
+from re import I
+
+
 def is_odd(a_number):
     """Return True if a_number is odd, and False if a_number is even.
 
@@ -263,20 +266,13 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    if some_kind_of_list is not None:
-        print("\n" + exercise_name)
-        if type(some_kind_of_list[0]) is list:
-            for row in some_kind_of_list:
-                for column in row:
-                    print(column, end="")
-                print()
-        else:
-            for column in some_kind_of_list:
-                print(column, end="")
-            print()
-    else:
-        print(exercise_name, ")
-    
+    if pyramid_list:
+    print:(pyramid_list)= []
+    for i in range(0,pyramid_list):
+        for j in range(i + 1):
+            edge_list.append(str(j))
+        pyramid_list.append(edge_list)
+    return pyramid_list
 
 
 def little_printer(some_kind_of_list, exercise_name):
