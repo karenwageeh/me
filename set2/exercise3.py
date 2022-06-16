@@ -2,6 +2,8 @@
 """Modify each function until the tests pass."""
 
 
+from ast import If
+import py_compile
 from re import I
 
 
@@ -266,13 +268,24 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    if pyramid_list:
-    print:(pyramid_list)= []
-    for i in range(0,pyramid_list):
-        for j in range(i + 1):
-            edge_list.append(str(j))
-        pyramid_list.append(edge_list)
+    pyramid_list = []  
+    stars = 1
+    for y in range(5):
+        inside_list = ['','','','','','','','','','']
+        gab = 0
+        for x in range (gab):
+            inside_list [5 + (gab-1)] = '*'
+            inside_list [5 - (gab+1)] = '*'
+            gab = gab + 1 
+        stars = stars + 1
+        pyramid_list.append(inside_list)
     return pyramid_list
+
+
+
+
+
+
 
 
 def little_printer(some_kind_of_list, exercise_name):
