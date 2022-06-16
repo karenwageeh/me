@@ -268,20 +268,41 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pyramid_list = []  
-    stars = 1
-    for y in range(5):
-        inside_list = ['','','','','','','','','','']
-        gab = 0
-        for x in range (gab):
-            inside_list [5 + (gab-1)] = '*'
-            inside_list [5 - (gab+1)] = '*'
-            gab = gab + 1 
-        stars = stars + 1
-        pyramid_list.append(inside_list)
+    pyramid_list =
+    [[' ',' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' ',' ']]
+
+    for x in range(5):
+        star_place1 = 4 - x
+        star_place2 = 5 + x
+
+        for y in range(star_place1, star_place2):
+            pyramid_list[x][y] = '*'
+
+    print(pyramid_list)
     return pyramid_list
 
 
+'''for x in range(9):
+    
+    inside_list[5 + (gab-1)] = '*'
+    inside_list[5 - (gab+1)] = '*'
+gab = gab + 1 
+stars = stars + 1
+pyramid_list.append(inside_list)
+return pyramid_list
+
+inside_list = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+inside_list[-1]
+[' ',' ',' ',' ',' ',' ',' ',' ',' ','*']
+[' ',' ',' ','*',' ','*',' ',' ',' ',' ']
+
+pyramid_list = []
+stars = 1
+for y in range(5)'''
 
 
 
