@@ -39,7 +39,7 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements.
     As an extra challenge, see if you can get that down to three.
     """
-    if moves == True: 
+    if moves == True:
         if should_move == True:
             return "No Problem"
         else:
@@ -49,8 +49,6 @@ def fix_it(moves=True, should_move=True):
             return "WD-40"
         else:
             return "No Problem"
-
-
 
 
 def loops_preview():
@@ -176,7 +174,6 @@ def loops_4():
             left_list.append(str(j))
         right_list.append(left_list)
     return right_list
-   
 
 
 def loops_5():
@@ -206,15 +203,14 @@ def loops_5():
         f"There are {num_bottles} green bottles"
     you'll come to see the pros and cons of each over time.
     """
-    
+
     right_list = []
     for i in range(10):
         left_list = []
         for j in range(5):
-            left_list.append(f"(i{i}, j{j})")#(i0, j0)
+            left_list.append(f"(i{i}, j{j})")  # (i0, j0)
         right_list.append(left_list)
     return right_list
-   
 
 
 def loops_6():
@@ -244,7 +240,6 @@ def loops_6():
             edge_list.append(str(j))
         row_list.append(edge_list)
     return row_list
-    
 
 
 def loops_7():
@@ -268,25 +263,26 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pyramid_list =
-    [[' ',' ',' ',' ',' ',' ',' ',' ',' '],
-    [' ',' ',' ',' ',' ',' ',' ',' ',' '],
-    [' ',' ',' ',' ',' ',' ',' ',' ',' '],
-    [' ',' ',' ',' ',' ',' ',' ',' ',' '],
-    [' ',' ',' ',' ',' ',' ',' ',' ',' ']]
+    pyramid_list = [
+        [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+    ]
 
     for x in range(5):
         star_place1 = 4 - x
         star_place2 = 5 + x
 
         for y in range(star_place1, star_place2):
-            pyramid_list[x][y] = '*'
+            pyramid_list[x][y] = "*"
 
     print(pyramid_list)
     return pyramid_list
 
 
-'''for x in range(9):
+"""for x in range(9):
     
     inside_list[5 + (gab-1)] = '*'
     inside_list[5 - (gab+1)] = '*'
@@ -302,11 +298,7 @@ inside_list[-1]
 
 pyramid_list = []
 stars = 1
-for y in range(5)'''
-
-
-
-
+for y in range(5)"""
 
 
 def little_printer(some_kind_of_list, exercise_name):
