@@ -5,6 +5,12 @@ Modify each function until the tests pass.
 """
 
 
+from ast import Num
+import numbers
+
+from numpy import number
+
+
 def loop_ranger(start, stop=None, step=1):
     """Return a list of numbers between start and stop in steps of step.
 
@@ -17,7 +23,11 @@ def loop_ranger(start, stop=None, step=1):
     Look up for how range() works in the python docs. You could  answer this
     with just the range function, but we'd like you to do it the long way.
     """
-    return None
+    number_list = []
+    while start < stop:
+        number_list.append(start)
+        start = start + step
+    return number_list
 
 
 def two_step_ranger(start, stop):
@@ -28,7 +38,7 @@ def two_step_ranger(start, stop):
 
     You can either reuse loop_ranger, or the range function that in the standard library
     """
-    return None
+    return loop_ranger(start, stop, step=2)
 
 
 def stubborn_asker(low, high):
@@ -39,7 +49,13 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    return None
+    val = input()
+    val = float(val)
+    if val > low and val < high:
+        return val
+    else:
+        print("not on the right values")
+        return stubborn_asker(low, high)
 
 
 def not_number_rejector(message):
@@ -49,7 +65,16 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    flag = True
+
+    while flag:
+        try:
+            val = input(message)
+            val = int(val)
+            print(val)
+            return val
+        except ValueError:
+            None
 
 
 def super_asker(low, high):
@@ -67,7 +92,9 @@ if __name__ == "__main__":
     # Add to these tests, give them arguments etc. to make sure that your
     # code is robust to the situations that you'll see in action.
     # NOTE: because some of these take user input you can't run them from
-
+    print("starting main")
+    not_number_rejector("please enter a number: ")
+    stubborn_asker(0, 10)
     print("\nloop_ranger", loop_ranger(1, 10, 2))
     print("\ntwo_step_ranger", two_step_ranger(1, 10))
     print("\nstubborn_asker")
