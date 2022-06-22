@@ -7,6 +7,7 @@ Modify each function until the tests pass.
 
 from ast import Num
 import numbers
+from re import I
 
 from numpy import number
 
@@ -49,13 +50,20 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    val = input()
-    val = float(val)
-    if val > low and val < high:
-        return val
-    else:
-        print("not on the right values")
-        return stubborn_asker(low, high)
+    while True:
+        num = input(f"input value between {low} and {high} ")
+        num = int(num)
+        if num > low and num < high:
+            return num
+        else:
+            print(f"values is not between {low} and {high}")
+    # val = input("hello")
+    # val = float(val)
+    # if val > low and val < high:
+    #     return val
+    # else:
+    #     print("not on the right values")
+    pass
 
 
 def not_number_rejector(message):
@@ -65,16 +73,25 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    flag = True
-
-    while flag:
+    while True:
+        userin = input(f"type something in ")
         try:
-            val = input(message)
-            val = int(val)
-            print(val)
-            return val
-        except ValueError:
-            None
+            num = int(userin)
+            return num
+        except:
+            print("this is not a number")
+
+    # flag = True
+
+    # while flag:
+    #     try:
+    #         val = input(message)
+    #         val = int(val)
+    #         print(val)
+    #         return val
+    #     except ValueError:
+    #         None
+    pass
 
 
 def super_asker(low, high):
@@ -83,7 +100,7 @@ def super_asker(low, high):
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     """
-    return None
+    pass
 
 
 if __name__ == "__main__":
