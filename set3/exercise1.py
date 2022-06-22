@@ -6,6 +6,7 @@ Modify each function until the tests pass.
 
 
 from ast import Num
+from cmath import e
 import numbers
 from re import I
 
@@ -52,11 +53,11 @@ def stubborn_asker(low, high):
     """
     while True:
         num = input(f"input value between {low} and {high} ")
-        num = int(num)
+        num = float(num)
         if num > low and num < high:
             return num
         else:
-            print(f"values is not between {low} and {high}")
+            print(f"{num} is not between {low} and {high}")
     # val = input("hello")
     # val = float(val)
     # if val > low and val < high:
@@ -100,7 +101,17 @@ def super_asker(low, high):
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     """
-    pass
+    while True:
+        while True:
+            user_input = input(f"input value between {low} and {high} ")
+            try:
+                num = int(user_input)
+                if num > low and num < high:
+                    return num
+                else:
+                    print(f"{num} is not between {low} and {high} ")
+            except Exception as e:
+                print(f"{user_input} isn't an integer. Enter an integer please\n({e})")
 
 
 if __name__ == "__main__":
