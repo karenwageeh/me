@@ -77,8 +77,10 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    pyramid = []
+    url =  https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=20
 
+    pyramid = []
+for i range: [10]
     return pyramid
 
 
