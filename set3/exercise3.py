@@ -30,6 +30,10 @@ def advancedGuessingGame():
     """
 
 
+print("\nWelcome to the guessing game!")
+print("A number between _ and _ ?")
+
+
 def super_asker(low, high):
     """Robust asking function.
 
