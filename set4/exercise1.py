@@ -83,6 +83,10 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
+    len = 1
+    max_reached = False
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+
     # pyramid = []
     # url =  https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=20
     # # return pyramid
@@ -128,16 +132,32 @@ def diarist():
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
-    pass
+
+
+filename = "set4/Trispokedovetiles (laser) .gcode"
+f = open(filename, "r", encoding="utf-8")
+OnCount = 0
+OffCount = 0
+for line in f.readlines():
+    if "M10 P1" in line:
+        OffCount = OffCount + 1
+    elif "M11 P1" in line:
+        OnCount = OnCount + 1
+print(f"oncount: {OnCount} offcount: {OffCount}")
+
+writefilename = "set4/lasers.pew"
+f = open(writefilename, "w", encoding="utf-8")
+f.write(str(OffCount))
+pass
 
 
 if __name__ == "__main__":
     print(get_some_details())
 
-    wp = wordy_pyramid()
-    [print(f"{word} {len(word)}") for word in wp]
+    # wp = wordy_pyramid()
+    # [print(f"{word} {len(word)}") for word in wp]
 
-    print(pokedex(low=3, high=7))
+    print(pokedex(low=2, high=6))
 
     diarist()
 
