@@ -83,9 +83,9 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    len = 1
-    max_reached = False
-    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+    # len = 1
+    # max_reached = False
+    # url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
 
     # pyramid = []
     # url =  https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=20
@@ -106,13 +106,13 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    id = 5
-    url = f"https://pokeapi.co/api/v2/pokemon/{id}"
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
+    # id = 5
+    # url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+    # r = requests.get(url)
+    # if r.status_code is 200:
+    #     the_json = json.loads(r.text)
 
-    return {"name": None, "weight": None, "height": None}
+    # return {"name": None, "weight": None, "height": None}
 
 
 def diarist():
@@ -132,42 +132,39 @@ def diarist():
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
+    filename = "set4/Trispokedovetiles (laser) .gcode"
+    f = open(filename, "r", encoding="utf-8")
+    OnCount = 0
+    OffCount = 0
+    for line in f.readlines():
+        if "M10 P1" in line:
+            OffCount = OffCount + 1
+        elif "M11 P1" in line:
+            OnCount = OnCount + 1
+    print(f"oncount: {OnCount} offcount: {OffCount}")
 
+    writefilename = "set4/lasers.pew"
+    f = open(writefilename, "w", encoding="utf-8")
+    f.write(str(OffCount))
+    pass
 
-filename = "set4/Trispokedovetiles (laser) .gcode"
-f = open(filename, "r", encoding="utf-8")
-OnCount = 0
-OffCount = 0
-for line in f.readlines():
-    if "M10 P1" in line:
-        OffCount = OffCount + 1
-    elif "M11 P1" in line:
-        OnCount = OnCount + 1
-print(f"oncount: {OnCount} offcount: {OffCount}")
+    if __name__ == "__main__":
+        print(get_some_details())
 
-writefilename = "set4/lasers.pew"
-f = open(writefilename, "w", encoding="utf-8")
-f.write(str(OffCount))
-pass
+        # wp = wordy_pyramid()
+        # [print(f"{word} {len(word)}") for word in wp]
 
+        print(pokedex(low=2, high=6))
 
-if __name__ == "__main__":
-    print(get_some_details())
+        diarist()
 
-    # wp = wordy_pyramid()
-    # [print(f"{word} {len(word)}") for word in wp]
-
-    print(pokedex(low=2, high=6))
-
-    diarist()
-
-    in_root = os.path.isfile("lasers.pew")
-    in_set4 = os.path.isfile("set4/lasers.pew")
-    if not in_set4 and not in_root:
-        print("diarist did not create lasers.pew")
-    elif not in_set4 and in_root:
-        print(
-            "diarist did create lasers.pew, but in the me folder, it should be in the set4 folder"
-        )
-    elif in_set4:
-        print("lasers.pew is in the right place")
+        in_root = os.path.isfile("lasers.pew")
+        in_set4 = os.path.isfile("set4/lasers.pew")
+        if not in_set4 and not in_root:
+            print("diarist did not create lasers.pew")
+        elif not in_set4 and in_root:
+            print(
+                "diarist did create lasers.pew, but in the me folder, it should be in the set4 folder"
+            )
+        elif in_set4:
+            print("lasers.pew is in the right place")

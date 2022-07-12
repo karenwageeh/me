@@ -29,68 +29,103 @@ def advancedGuessingGame():
     purpose if you can!
     """
 
+    print("\nWelcome to the guessing game!")
+    print("A number between _ and _ ?")
 
-print("\nWelcome to the guessing game!")
-print("A number between _ and _ ?")
+    lowerbound = 0
+    upperbound = 0
+    while True:
+        try:
+            lowerbound = int(input("Enter a lower bound"))
+            break
+        except ValueError:
+            print("this is not a number")
+    print(f"ok then, a number between {lowerbound} and _?")
+    while True:
+        try:
+            upperbound = int(input("Enter a upper bound:"))
+            break
+        except ValueError:
+            print("this is not a number")
+    print(f"ok then, a number between {lowerbound} and {upperbound} ?")
+    upperbound = int(upperbound)
 
+    actualnumber = random.randint(lowerbound, upperbound)
 
-# def super_asker(low, high):
-#     """Robust asking function.
+    guessed = False
 
-#     Combine what you learnt from stubborn_asker and not_number_rejector
-#     to make a function that does it all!
-#     """
-#     while True:
-#         user_input = input(f"input value between {low} and {high} ")
-#         try:
-#             num = int(user_input)
-#             if num > low and num < high:
-#                 return num
-#             else:
-#                 print(f"{num} is not between {low} and {high} ")
-#         except Exception as e:
-#             print(f"{user_input} isn't an integer. Enter an integer please\n({e})")
+    while not guessed:
+        guessedNumber = input("Guess a number: ")
+        try:
+            guessedNumber = int(guessedNumber)
+            print(f"You guessed {guessedNumber},")
+            if guessedNumber == actualnumber:
+                print(f"You got it!! It was {actualnumber}")
+                guessed = True
+            elif guessedNumber < actualnumber and guessedNumber > lowerbound:
+                print("Too small, try again:'(")
+            elif guessedNumber > actualnumber and guessedNumber < upperbound:
+                print("Too big, try again :'(")
+            else:
+                print("keep inside of the bounds!")
+        except:
+            print("this is not a number")
+    return "You got it!"
 
+    # def super_asker(low, high):
+    #     """Robust asking function.
 
-# def not_number_rejector(message):
-#     """Ask for a number repeatedly until actually given one.
+    #     Combine what you learnt from stubborn_asker and not_number_rejector
+    #     to make a function that does it all!
+    #     """
+    #     while True:
+    #         user_input = input(f"input value between {low} and {high} ")
+    #         try:
+    #             num = int(user_input)
+    #             if num > low and num < high:
+    #                 return num
+    #             else:
+    #                 print(f"{num} is not between {low} and {high} ")
+    #         except Exception as e:
+    #             print(f"{user_input} isn't an integer. Enter an integer please\n({e})")
 
-#     Ask for a number, and if the response is actually NOT a number
-#     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
-#     When you do get a number, return it.
-#     """
-#     while True:
-#         userin = input(message)
-#         try:
-#             num = int(userin)
-#             return num
-#         except:
-#             print("this is not a number")
+    # def not_number_rejector(message):
+    #     """Ask for a number repeatedly until actually given one.
 
+    #     Ask for a number, and if the response is actually NOT a number
+    #     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
+    #     When you do get a number, return it.
+    #     """
+    #     while True:
+    #         userin = input(message)
+    #         try:
+    #             num = int(userin)
+    #             return num
+    #         except:
+    #             print("this is not a number")
 
-# def advancedGuessingGame():
-#     print("\nWelcome to the guessing game!")
-#     print("Enter an upperBound: ")
-#     upper_bound = super_asker(0, 100)
-#     print("Enter an lowerBound: ")
-#     lowerBound = super_asker(0, upper_bound - 1)
-#     print(f"OK then, a number between {lowerBound} and {upper_bound} ?")
+    # def advancedGuessingGame():
+    #     print("\nWelcome to the guessing game!")
+    #     print("Enter an upperBound: ")
+    #     upper_bound = super_asker(0, 100)
+    #     print("Enter an lowerBound: ")
+    #     lowerBound = super_asker(0, upper_bound - 1)
+    #     print(f"OK then, a number between {lowerBound} and {upper_bound} ?")
 
-#     actualNumber = random.randint(lowerBound, upper_bound)
+    #     actualNumber = random.randint(lowerBound, upper_bound)
 
-#     while True:
-#         guessedNumber = not_number_rejector("Guess a number: ")
-#         print(f"You guessed {guessedNumber},")
-#         if guessedNumber == actualNumber:
-#             print(f"You got it!! It was {actualNumber}")
-#             return "You got it!"
-#         elif guessedNumber < actualNumber:
-#             print("Too small, try again :'(")
-#         else:
-#             print("Too big, try again :'(")
+    #     while True:
+    #         guessedNumber = not_number_rejector("Guess a number: ")
+    #         print(f"You guessed {guessedNumber},")
+    #         if guessedNumber == actualNumber:
+    #             print(f"You got it!! It was {actualNumber}")
+    #             return "You got it!"
+    #         elif guessedNumber < actualNumber:
+    #             print("Too small, try again :'(")
+    #         else:
+    #             print("Too big, try again :'(")
 
-# the tests are looking for the exact string "You got it!". Don't modify that!
+    # the tests are looking for the exact string "You got it!". Don't modify that!
 
-
-if __name__ == "__main__":
-    print(advancedGuessingGame())
+    if __name__ == "__main__":
+        print(advancedGuessingGame())
