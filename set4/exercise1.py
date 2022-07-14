@@ -132,10 +132,12 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
+    height_list = []
     url = f"https://pokeapi.co/api/v2/pokemon/{id}"
     for i in range(low, high):
         URL = url.format(id=i)
         r = requests.get(URL)
+        r["height"]
 
     # id = 5
     # url = f"https://pokeapi.co/api/v2/pokemon/{id}"
@@ -143,7 +145,7 @@ def pokedex(low=1, high=5):
     # if r.status_code is 200:
     #     the_json = json.loads(r.text)
 
-    # return {"name": None, "weight": None, "height": None}
+    return {"name": None, "weight": None, "height": None}
 
 
 def diarist():
@@ -163,21 +165,19 @@ def diarist():
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
-    filename = "set4/Trispokedovetiles (laser) .gcode"
-    f = open(filename, "r", encoding="utf-8")
-    OnCount = 0
+    r = open("set4/Trispokedovetiles(laser).gcode", "r", encoding="utf-8")
+    # OnCount = 0
     OffCount = 0
-    for line in f.readlines():
+    for line in r.readlines():
         if "M10 P1" in line:
-            OffCount = OffCount + 1
-        elif "M11 P1" in line:
-            OnCount = OnCount + 1
-    print(f"oncount: {OnCount} offcount: {OffCount}")
-
-    writefilename = "set4/lasers.pew"
-    f = open(writefilename, "w", encoding="utf-8")
+            OffCount += 1
+        # elif "M11 P1" in line:
+        #     OnCount += 1
+    # print(f"oncount: {OnCount}, offcount: {OffCount}")
+    f = open("set4/lasers.pew", "w+", encoding="utf-8")
     f.write(str(OffCount))
-    pass
+    f.close()
+    r.close()
 
 
 if __name__ == "__main__":
