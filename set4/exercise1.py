@@ -83,6 +83,32 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
+
+
+def wordy_pyramid():
+    URL = (
+        "https://us-central1-waldenpondpress.cloudfunctions.net/"
+        "give_me_a_word?wordlength={length}"
+    )
+    pyramid_list = []
+    for i in range(3, 21, 2):
+        url = URL.format(length=i)
+        r = requests.get(url)
+        if r.status_code == 200:
+            message = r.text
+            pyramid_list.append(message)
+        print("failed a request", r.status_code, i)
+    for i in range(20, 3, -2):
+        url = URL.format(length=i)
+        r = requests.get(url)
+        if r.status_code == 200:
+            message = r.text
+            pyramid_list.append(message)
+    else:
+        print("request denied", r.status_code, i)
+
+    return pyramid_list
+
     # len = 1
     # max_reached = False
     # url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
@@ -106,6 +132,11 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
+    url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+    for i in range(low, high):
+        URL = url.format(id=i)
+        r = requests.get(URL)
+
     # id = 5
     # url = f"https://pokeapi.co/api/v2/pokemon/{id}"
     # r = requests.get(url)
@@ -148,23 +179,24 @@ def diarist():
     f.write(str(OffCount))
     pass
 
-    if __name__ == "__main__":
-        print(get_some_details())
 
-        # wp = wordy_pyramid()
-        # [print(f"{word} {len(word)}") for word in wp]
+if __name__ == "__main__":
+    print(get_some_details())
 
-        print(pokedex(low=2, high=6))
+    # wp = wordy_pyramid()
+    # [print(f"{word} {len(word)}") for word in wp]
 
-        diarist()
+    print(pokedex(low=2, high=6))
 
-        in_root = os.path.isfile("lasers.pew")
-        in_set4 = os.path.isfile("set4/lasers.pew")
-        if not in_set4 and not in_root:
-            print("diarist did not create lasers.pew")
-        elif not in_set4 and in_root:
-            print(
-                "diarist did create lasers.pew, but in the me folder, it should be in the set4 folder"
-            )
-        elif in_set4:
-            print("lasers.pew is in the right place")
+    diarist()
+
+    in_root = os.path.isfile("lasers.pew")
+    in_set4 = os.path.isfile("set4/lasers.pew")
+    if not in_set4 and not in_root:
+        print("diarist did not create lasers.pew")
+    elif not in_set4 and in_root:
+        print(
+            "diarist did create lasers.pew, but in the me folder, it should be in the set4 folder"
+        )
+    elif in_set4:
+        print("lasers.pew is in the right place")
