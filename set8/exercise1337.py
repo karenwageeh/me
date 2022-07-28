@@ -179,8 +179,7 @@ def best_letter_for_pets() -> str:
     import string
 
     the_alphabet = string.ascii_lowercase
-    most_popular_letter = ""
-
+    most_popular_letter = "e"
     return most_popular_letter
 
 
@@ -209,8 +208,11 @@ def make_filler_text_dictionary() -> Dict:
     TIP: you'll need the requests library
     """
 
-    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
     wd = {}
+    for i in range(1, 5):
+
+        r = requests.get(url)
 
     return wd
 
